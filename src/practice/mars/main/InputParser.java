@@ -32,17 +32,4 @@ public class InputParser {
     public static String removeAllSpace(String input) {
         return input.replaceAll("\\s+", "");
     }
-
-    public static String[] verifyRoverInfoInput(String roverInfoString) {
-//        Pattern pattern = PattYern.compile("(\\d\\s){2}\\[N,S,W,E]}");
-         return roverInfoString.split(" ");
-    }
-
-    public static String VerifyCommandInfo(String commandLine) {
-        return commandLine;
-    }
-
-    public static boolean VerifyPlateauInfoInput(String plateauInfo) {
-        return false;  //To change body of created methods use File | Settings | File Templates.
-    }
 }

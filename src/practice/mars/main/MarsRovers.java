@@ -27,7 +27,6 @@ public class MarsRovers {
 
     private void initPlateau(String plateauInfo) {
         plateauInfo = InputParser.removeRedundantSpace(plateauInfo);
-        boolean verifyResult = InputParser.VerifyPlateauInfoInput(plateauInfo);
         String[] border = plateauInfo.split(" ");
         this.plateau = new Plateau(Integer.parseInt(border[0]), Integer.parseInt(border[1]));
 
@@ -39,19 +38,14 @@ public class MarsRovers {
 
     private Rover parseRover(String roverInfoString) {
         roverInfoString = InputParser.removeRedundantSpace(roverInfoString);
-        String[] roverInfo = InputParser.verifyRoverInfoInput(roverInfoString);
+        String[] roverInfo = roverInfoString.split(" ");
         return new Rover(Integer.parseInt(roverInfo[0]), Integer.parseInt(roverInfo[1]), Heading.valueOf(roverInfo[2]));
     }
 
     private void addRoverInvoker(RoverController roverController, String commandLine) {
         commandLine = InputParser.removeAllSpace(commandLine);
-        commandLine = InputParser.VerifyCommandInfo(commandLine);
         RoverInvoker roverInvoker = new RoverInvoker(roverController, commandLine);
         roverInvokerList.add(roverInvoker);
-    }
-
-    public int getSizeOfRoverInvokerList() {
-        return roverInvokerList.size();
     }
 
     public void execute() {
